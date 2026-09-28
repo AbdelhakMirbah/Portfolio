@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone, ArrowUp, GraduationCap } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaReact, FaPython, FaJava, FaPhp, FaBootstrap, FaHtml5, FaGitAlt, FaJira, FaDocker } from 'react-icons/fa';
+import { SiSpringboot, SiPandas, SiPostgresql, SiMysql, SiJavascript } from 'react-icons/si';
 import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
 import { useTranslation } from 'react-i18next';
@@ -26,6 +27,23 @@ const certifications = [
   { title: "Microsoft Excel Expert (Office 2016)", provider: "Microsoft", date: "May 2022", url: "https://www.credly.com/badges/baa2f397-42ef-4cb2-a366-b735f1b7169d?source=linked_in_profile" },
   { title: "Oracle Cloud Infrastructure 2025 Certified DevOps Professional", provider: "Oracle", date: "2026", url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=B0E5F13B50749715C4C6EB04CCC393509D881F66DCA6334EE16BBD173E716084" }
 ];
+
+const techStack = [
+  { name: 'React', icon: FaReact },
+  { name: 'Spring Boot', icon: SiSpringboot },
+  { name: 'Python', icon: FaPython },
+  { name: 'Java', icon: FaJava },
+  { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'JavaScript', icon: SiJavascript },
+  { name: 'PHP', icon: FaPhp },
+  { name: 'Bootstrap', icon: FaBootstrap },
+  { name: 'Docker', icon: FaDocker },
+  { name: 'Git', icon: FaGitAlt },
+  { name: 'Jira', icon: FaJira },
+  { name: 'Pandas', icon: SiPandas },
+];
+const marqueeItems = [...techStack, ...techStack];
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -168,6 +186,18 @@ function App() {
             <Briefcase size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
             <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.languagesTools')}</h4>
             <p style={{opacity: 0.8}}>Python, Java, JavaScript, SQL, Git, Jira, Scrum</p>
+          </div>
+        </div>
+        
+        {/* Animated Tech Marquee */}
+        <div className="marquee-container">
+          <div className="marquee-content">
+            {marqueeItems.map((Tech, index) => (
+              <div key={index} className="marquee-item">
+                <Tech.icon size={28} />
+                <span>{Tech.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
