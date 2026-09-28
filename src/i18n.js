@@ -7,7 +7,8 @@ const resources = {
       nav: {
         about: "About",
         projects: "Projects",
-        certifications: "Certifications"
+        certifications: "Certifications",
+        contact: "Contact"
       },
       hero: {
         hi: "Hi, I am Abdelhak",
@@ -66,6 +67,14 @@ const resources = {
       certifications: {
         title: "Certifications"
       },
+      contact: {
+        title: "Get In Touch",
+        desc: "Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!",
+        sayHello: "Say Hello",
+        email: "Email",
+        location: "Location",
+        morocco: "Morocco"
+      },
       footer: {
         builtWith: "Built with React & Vite."
       }
@@ -76,7 +85,8 @@ const resources = {
       nav: {
         about: "À propos",
         projects: "Projets",
-        certifications: "Certifications"
+        certifications: "Certifications",
+        contact: "Contact"
       },
       hero: {
         hi: "Bonjour, je suis Abdelhak",
@@ -134,6 +144,14 @@ const resources = {
       },
       certifications: {
         title: "Certifications"
+      },
+      contact: {
+        title: "Contactez-moi",
+        desc: "Que vous ayez une question, une idée de projet, ou que vous souhaitiez simplement dire bonjour, je ferai de mon mieux pour vous répondre !",
+        sayHello: "Dire Bonjour",
+        email: "Email",
+        location: "Localisation",
+        morocco: "Maroc"
       },
       footer: {
         builtWith: "Fait avec React & Vite."

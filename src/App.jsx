@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X } from 'lucide-react';
+import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
@@ -75,6 +75,7 @@ function App() {
             <a href="#about" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</a>
             <a href="#projects" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</a>
             <a href="#certifications" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.certifications')}</a>
+            <a href="#contact" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</a>
             
             <div className="nav-controls" style={{ display: 'flex', gap: '0.5rem', marginLeft: '1rem' }}>
               <button onClick={toggleLanguage} style={themeBtnStyle} aria-label="Toggle Language" title="Change Language">
@@ -222,6 +223,37 @@ function App() {
               </div>
             </a>
           ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="container" style={sectionStyle}>
+        <h3 style={sectionTitleStyle}>{t('contact.title')}</h3>
+        <div className="glass" style={{...cardStyle, alignItems: 'center', textAlign: 'center', maxWidth: '800px', margin: '0 auto'}}>
+          <p style={{fontSize: '1.2rem', opacity: 0.8, marginBottom: '2rem', maxWidth: '600px'}}>
+            {t('contact.desc')}
+          </p>
+          <a href="mailto:Abdelmirbah@gmail.com" style={{...primaryBtnStyle, padding: '1rem 2.5rem', fontSize: '1.1rem', marginBottom: '3rem'}}>
+            <Send size={20} /> {t('contact.sayHello')}
+          </a>
+          
+          <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ padding: '1rem', borderRadius: '50%', background: 'var(--glass-border)', display: 'flex' }}>
+                <Mail size={24} color="var(--accent-color)" />
+              </div>
+              <span style={{ fontWeight: 600 }}>{t('contact.email')}</span>
+              <span style={{ opacity: 0.7 }}>Abdelmirbah@gmail.com</span>
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ padding: '1rem', borderRadius: '50%', background: 'var(--glass-border)', display: 'flex' }}>
+                <MapPin size={24} color="var(--accent-color)" />
+              </div>
+              <span style={{ fontWeight: 600 }}>{t('contact.location')}</span>
+              <span style={{ opacity: 0.7 }}>{t('contact.morocco')}</span>
+            </div>
+          </div>
         </div>
       </section>
 
