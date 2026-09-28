@@ -171,6 +171,9 @@ function App() {
       {/* About Section */}
       <section id="about" className="container" style={sectionStyle}>
         <h3 style={sectionTitleStyle}>{t('about.title')}</h3>
+        <p style={{textAlign: 'center', maxWidth: '800px', margin: '0 auto 4rem', fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.8}}>
+          {t('about.bio')}
+        </p>
         <div style={gridStyle}>
           <div className="glass" style={cardStyle}>
             <Layout size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
@@ -205,27 +208,24 @@ function App() {
       {/* Education Section */}
       <section id="education" className="container" style={sectionStyle}>
         <h3 style={sectionTitleStyle}>{t('education.title')}</h3>
-        <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
-          <div style={timelineItemStyle}>
+        <div className="timeline-container">
+          <div className="timeline-item">
             <div style={{display: 'flex', alignItems: 'flex-start', gap: '0.8rem', marginBottom: '0.5rem'}}>
-              <GraduationCap size={24} color="var(--accent-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
               <h4 style={{fontSize: '1.3rem'}}>{t('education.edu1.degree')}</h4>
             </div>
-            <p style={{color: 'var(--accent-color)', fontWeight: 600, paddingLeft: '2.3rem'}}>{t('education.edu1.school')} | {t('education.edu1.date')}</p>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('education.edu1.school')} | {t('education.edu1.date')}</p>
           </div>
-          <div style={timelineItemStyle}>
+          <div className="timeline-item">
             <div style={{display: 'flex', alignItems: 'flex-start', gap: '0.8rem', marginBottom: '0.5rem'}}>
-              <GraduationCap size={24} color="var(--accent-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
               <h4 style={{fontSize: '1.3rem'}}>{t('education.edu2.degree')}</h4>
             </div>
-            <p style={{color: 'var(--accent-color)', fontWeight: 600, paddingLeft: '2.3rem'}}>{t('education.edu2.school')} | {t('education.edu2.date')}</p>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('education.edu2.school')} | {t('education.edu2.date')}</p>
           </div>
-          <div style={timelineItemStyle}>
+          <div className="timeline-item">
             <div style={{display: 'flex', alignItems: 'flex-start', gap: '0.8rem', marginBottom: '0.5rem'}}>
-              <GraduationCap size={24} color="var(--accent-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
               <h4 style={{fontSize: '1.3rem'}}>{t('education.edu3.degree')}</h4>
             </div>
-            <p style={{color: 'var(--accent-color)', fontWeight: 600, paddingLeft: '2.3rem'}}>{t('education.edu3.school')} | {t('education.edu3.date')}</p>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('education.edu3.school')} | {t('education.edu3.date')}</p>
           </div>
         </div>
       </section>
@@ -233,8 +233,8 @@ function App() {
       {/* Experience Section */}
       <section id="experience" className="container" style={sectionStyle}>
         <h3 style={sectionTitleStyle}>{t('experience.title')}</h3>
-        <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
-          <div style={timelineItemStyle}>
+        <div className="timeline-container">
+          <div className="timeline-item">
             <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp1.title')}</h4>
             <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
               <a href="https://www.leoni-morocco.com/fr" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
@@ -243,7 +243,7 @@ function App() {
             </p>
             <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp1.desc')}</p>
           </div>
-          <div style={timelineItemStyle}>
+          <div className="timeline-item">
             <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp2.title')}</h4>
             <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
               <a href="https://damanecash.ma" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
@@ -252,7 +252,7 @@ function App() {
             </p>
             <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp2.desc')}</p>
           </div>
-          <div style={timelineItemStyle}>
+          <div className="timeline-item">
             <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp3.title')}</h4>
             <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
               <a href="https://kazinov.com" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
@@ -261,7 +261,7 @@ function App() {
             </p>
             <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp3.desc')}</p>
           </div>
-          <div style={timelineItemStyle}>
+          <div className="timeline-item">
             <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp4.title')}</h4>
             <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
               <a href="https://innolia.ma" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>

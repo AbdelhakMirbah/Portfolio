@@ -164,6 +164,49 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.1);
 }
 
+.timeline-item {
+  padding: 1.5rem;
+  background: var(--glass-bg);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.timeline-item:hover {
+  transform: translateY(-5px);
+  background: var(--card-bg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 1.8rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  border: 3px solid var(--bg-color);
+  z-index: 2;
+}
+
+.timeline-container {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: -1.75rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: var(--accent-color);
+  opacity: 0.3;
+}
+
 .scroll-top-btn {
   position: fixed;
   bottom: 2.5rem;
@@ -267,11 +310,24 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Sections */
   section {
-    padding: 4rem 0 !important;
+    padding: 6rem 0 !important;
   }
   h3 {
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
     margin-bottom: 2rem !important;
+    text-align: center;
+    position: relative;
+  }
+  h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 2px;
   }
   
   .scroll-top-btn {
