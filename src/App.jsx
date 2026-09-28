@@ -103,14 +103,16 @@ function App() {
               {t('hero.description')}
             </p>
             
-            <div className="hero-text" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href="#projects" style={primaryBtnStyle}>
-                {t('hero.viewWork')} <ChevronRight size={18} />
-              </a>
-              <a href="/cv.pdf" download="Abdelhak_Mirbah_CV.pdf" style={{...primaryBtnStyle, background: 'transparent', border: '1px solid var(--accent-color)', color: 'var(--text-color)'}}>
-                {t('hero.downloadCV')} <Download size={18} />
-              </a>
-              <div style={{ display: 'flex', gap: '1rem', marginLeft: '1rem' }}>
+            <div className="hero-text hero-actions" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1rem' }}>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }} className="hero-buttons">
+                <a href="#projects" style={primaryBtnStyle}>
+                  {t('hero.viewWork')} <ChevronRight size={18} />
+                </a>
+                <a href="/cv.pdf" download="Abdelhak_Mirbah_CV.pdf" style={{...primaryBtnStyle, background: 'transparent', border: '1px solid var(--accent-color)', color: 'var(--text-color)'}}>
+                  {t('hero.downloadCV')} <Download size={18} />
+                </a>
+              </div>
+              <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }} className="hero-socials">
                 <a href="https://github.com/AbdelhakMirbah" target="_blank" rel="noreferrer" style={iconLinkStyle} aria-label="GitHub"><FaGithub size={24} /></a>
                 <a href="https://www.linkedin.com/in/abdelhak-mirbah" target="_blank" rel="noreferrer" style={iconLinkStyle} aria-label="LinkedIn"><FaLinkedin size={24} /></a>
                 <a href="mailto:Abdelmirbah@gmail.com" style={iconLinkStyle} aria-label="Email"><FaEnvelope size={24} /></a>
