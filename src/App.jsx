@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send } from 'lucide-react';
+import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
@@ -244,6 +244,14 @@ function App() {
               </div>
               <span style={{ fontWeight: 600 }}>{t('contact.email')}</span>
               <span style={{ opacity: 0.7 }}>Abdelmirbah@gmail.com</span>
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ padding: '1rem', borderRadius: '50%', background: 'var(--glass-border)', display: 'flex' }}>
+                <Phone size={24} color="var(--accent-color)" />
+              </div>
+              <span style={{ fontWeight: 600 }}>{t('contact.phone')}</span>
+              <span style={{ opacity: 0.7 }}>+212 607 71 55 35</span>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>

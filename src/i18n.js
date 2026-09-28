@@ -73,7 +73,8 @@ const resources = {
         sayHello: "Say Hello",
         email: "Email",
         location: "Location",
-        morocco: "Morocco"
+        morocco: "Morocco",
+        phone: "Phone"
       },
       footer: {
         builtWith: "Built with React & Vite."
@@ -151,7 +152,8 @@ const resources = {
         sayHello: "Dire Bonjour",
         email: "Email",
         location: "Localisation",
-        morocco: "Maroc"
+        morocco: "Maroc",
+        phone: "Téléphone"
       },
       footer: {
         builtWith: "Fait avec React & Vite."
