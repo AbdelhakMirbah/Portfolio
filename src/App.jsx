@@ -1,10 +1,35 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, Code, User, Mail, ChevronRight } from 'lucide-react';
+import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
+import { useTranslation } from 'react-i18next';
 import './index.css';
+
+const certifications = [
+  { title: "Spring, JPA, Testing, and Legacy Microservices", provider: "Packt", date: "Jan 2026", url: "https://www.coursera.org/account/accomplishments/verify/V2J4GU7UH3NE" },
+  { title: "Advanced Spring Cloud Microservices & Deployment with Docker", provider: "Packt", date: "Jan 2026", url: "https://www.coursera.org/account/accomplishments/verify/P9C8PYN8SFSM" },
+  { title: "Machine Learning with Python", provider: "IBM", date: "Dec 2025", url: "https://www.coursera.org/account/accomplishments/verify/S4XVZVGKRC12" },
+  { title: "Virtual Networks in Azure", provider: "Whizlabs", date: "Jun 2025", url: "https://www.coursera.org/account/accomplishments/verify/WPQ5TGRDGAOI" },
+  { title: "Intro to Containers w/ Docker, Kubernetes & OpenShift", provider: "IBM", date: "Jun 2025", url: "https://www.coursera.org/account/accomplishments/verify/69FQA5CV04A3" },
+  { title: "Introduction to Java and Object-Oriented Programming", provider: "University of Pennsylvania", date: "Jan 2025", url: "https://www.coursera.org/account/accomplishments/verify/CCOJM3QR1B35" },
+  { title: "React Basics", provider: "Meta", date: "Jan 2025", url: "https://www.coursera.org/account/accomplishments/verify/467O6NQ2D151" },
+  { title: "Software Engineering: Software Design and Project Management", provider: "HKUST", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/X8NAK7FAJ3YB" },
+  { title: "People & Soft Skills: Essential for Professional Success", provider: "IBM", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/specialization/PQXET4U4STQD" },
+  { title: "The Unix Workbench", provider: "Johns Hopkins University", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/JUB7KQBDT9VA" },
+  { title: "Programming for Everybody (Getting Started with Python)", provider: "University of Michigan", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/F9EZ5VM67KJT" },
+  { title: "Introduction to CSS3", provider: "University of Michigan", date: "Jan 2024", url: "https://www.coursera.org/account/accomplishments/verify/8BCP9JRWJDU6" },
+  { title: "Delivering Quality Work with Agility", provider: "IBM", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/8HT2N5PHUE25" },
+  { title: "Impact Measurement & Management for the SDGs", provider: "Duke University", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/EBL5DUNGHRY8" },
+  { title: "Villes africaines: Environnement et enjeux de développement durable", provider: "EPFL", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/VB775CMEM6HS" },
+  { title: "La recherche documentaire", provider: "École Polytechnique", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/FHUKYPU2CBPR" },
+  { title: "Microsoft Excel Expert (Office 2016)", provider: "Microsoft", date: "May 2022", url: "https://www.credly.com/badges/baa2f397-42ef-4cb2-a366-b735f1b7169d?source=linked_in_profile" },
+  { title: "Oracle Cloud Infrastructure 2025 Certified DevOps Professional", provider: "Oracle", date: "2026", url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=B0E5F13B50749715C4C6EB04CCC393509D881F66DCA6334EE16BBD173E716084" }
+];
 
 function App() {
   const [theme, setTheme] = useState('dark');
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -28,6 +53,10 @@ function App() {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'fr' : 'en');
+  };
+
   return (
     <div className="app-wrapper">
       <div className="hero-gradient"></div>
@@ -35,112 +64,183 @@ function App() {
       {/* Navigation */}
       <nav className="glass nav-animate" style={navStyle}>
         <div className="container" style={navContainerStyle}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>Portfolio</h1>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>Abdelhak Mirbah</h1>
           <div style={navLinksStyle}>
-            <a href="#about" style={linkStyle}>About</a>
-            <a href="#projects" style={linkStyle}>Projects</a>
-            <button onClick={toggleTheme} style={themeBtnStyle} aria-label="Toggle Theme">
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+            <a href="#about" style={linkStyle}>{t('nav.about')}</a>
+            <a href="#projects" style={linkStyle}>{t('nav.projects')}</a>
+            <a href="#certifications" style={linkStyle}>{t('nav.certifications')}</a>
+            
+            <div style={{ display: 'flex', gap: '0.5rem', marginLeft: '1rem' }}>
+              <button onClick={toggleLanguage} style={themeBtnStyle} aria-label="Toggle Language" title="Change Language">
+                <Globe size={20} /> <span style={{marginLeft: '0.3rem', fontSize: '0.9rem', fontWeight: 600}}>{i18n.language.toUpperCase()}</span>
+              </button>
+              <button onClick={toggleTheme} style={themeBtnStyle} aria-label="Toggle Theme">
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
       <main className="container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px' }}>
-        <div style={{ maxWidth: '800px' }}>
-          <p className="hero-text" style={{ color: 'var(--accent-color)', fontWeight: 600, fontSize: '1.1rem', marginBottom: '1rem' }}>
-            Hi, I am Abdelhak
-          </p>
-          <h2 className="hero-text" style={{ fontSize: '4.5rem', fontWeight: 900, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
-            Software Engineer <br/>
-            <span style={{ color: 'var(--accent-color)', opacity: 0.8 }}>Building Digital Experiences.</span>
-          </h2>
-          <p className="hero-text" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '2.5rem', maxWidth: '600px' }}>
-            I specialize in developing high-quality web applications, turning complex problems into elegant, user-centric solutions.
-          </p>
-          
-          <div className="hero-text" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <a href="#projects" style={primaryBtnStyle}>
-              View My Work <ChevronRight size={18} />
-            </a>
-            <div style={{ display: 'flex', gap: '1rem', marginLeft: '1rem' }}>
-              <a href="https://github.com" target="_blank" rel="noreferrer" style={iconLinkStyle}><Code size={24} /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={iconLinkStyle}><User size={24} /></a>
-              <a href="mailto:contact@example.com" style={iconLinkStyle}><Mail size={24} /></a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}>
+          <div style={{ maxWidth: '600px' }}>
+            <p className="hero-text" style={{ color: 'var(--accent-color)', fontWeight: 600, fontSize: '1.1rem', marginBottom: '1rem' }}>
+              {t('hero.hi')}
+            </p>
+            <h2 className="hero-text" style={{ fontSize: '4.5rem', fontWeight: 900, marginBottom: '1.5rem', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+              {t('hero.title')} <br/>
+              <span style={{ color: 'var(--accent-color)', opacity: 0.8 }}>{t('hero.subtitle')}</span>
+            </h2>
+            <p className="hero-text" style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '2.5rem', maxWidth: '600px' }}>
+              {t('hero.description')}
+            </p>
+            
+            <div className="hero-text" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <a href="#projects" style={primaryBtnStyle}>
+                {t('hero.viewWork')} <ChevronRight size={18} />
+              </a>
+              <a href="/cv.pdf" download="Abdelhak_Mirbah_CV.pdf" style={{...primaryBtnStyle, background: 'transparent', border: '1px solid var(--accent-color)', color: 'var(--text-color)'}}>
+                {t('hero.downloadCV')} <Download size={18} />
+              </a>
+              <div style={{ display: 'flex', gap: '1rem', marginLeft: '1rem' }}>
+                <a href="https://github.com/AbdelhakMirbah" target="_blank" rel="noreferrer" style={iconLinkStyle} aria-label="GitHub"><FaGithub size={24} /></a>
+                <a href="https://www.linkedin.com/in/abdelhak-mirbah" target="_blank" rel="noreferrer" style={iconLinkStyle} aria-label="LinkedIn"><FaLinkedin size={24} /></a>
+                <a href="mailto:Abdelmirbah@gmail.com" style={iconLinkStyle} aria-label="Email"><FaEnvelope size={24} /></a>
+              </div>
             </div>
+          </div>
+          
+          <div className="hero-text" style={{ flexShrink: 0, margin: '0 auto' }}>
+            <img 
+              src={profileImg} 
+              alt="Abdelhak Mirbah" 
+              style={{ width: '350px', height: '350px', objectFit: 'cover', borderRadius: '50%', border: '4px solid var(--glass-border)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} 
+            />
           </div>
         </div>
       </main>
+
+      {/* About Section */}
+      <section id="about" className="container" style={sectionStyle}>
+        <h3 style={sectionTitleStyle}>{t('about.title')}</h3>
+        <div style={gridStyle}>
+          <div className="glass" style={cardStyle}>
+            <Layout size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
+            <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.webDev')}</h4>
+            <p style={{opacity: 0.8}}>React, Spring Boot, Flask, PHP, Bootstrap, HTML/CSS/JS</p>
+          </div>
+          <div className="glass" style={cardStyle}>
+            <Database size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
+            <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.dataAnalytics')}</h4>
+            <p style={{opacity: 0.8}}>Pandas, PostgreSQL, Power BI, ETL, MySQL</p>
+          </div>
+          <div className="glass" style={cardStyle}>
+            <Briefcase size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
+            <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.languagesTools')}</h4>
+            <p style={{opacity: 0.8}}>Python, Java, JavaScript, SQL, Git, Jira, Scrum</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="container" style={sectionStyle}>
+        <h3 style={sectionTitleStyle}>{t('experience.title')}</h3>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+          <div style={timelineItemStyle}>
+            <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp1.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('experience.exp1.company')} | {t('experience.exp1.date')}</p>
+            <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp1.desc')}</p>
+          </div>
+          <div style={timelineItemStyle}>
+            <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp2.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('experience.exp2.company')} | {t('experience.exp2.date')}</p>
+            <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp2.desc')}</p>
+          </div>
+          <div style={timelineItemStyle}>
+            <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp3.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('experience.exp3.company')} | {t('experience.exp3.date')}</p>
+            <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp3.desc')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="container" style={sectionStyle}>
+        <h3 style={sectionTitleStyle}>{t('projects.title')}</h3>
+        <div style={gridStyle}>
+          <div className="glass" style={projectCardStyle}>
+            <h4 style={{fontSize: '1.4rem', marginBottom: '0.5rem'}}>{t('projects.proj1.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 500, marginBottom: '1rem'}}>{t('projects.proj1.tech')}</p>
+            <p style={{opacity: 0.8, flexGrow: 1, marginBottom: '1.5rem'}}>{t('projects.proj1.desc')}</p>
+            <a href="https://github.com/AbdelhakMirbah/FinalVersionPFA" target="_blank" rel="noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 600}}>
+              {t('projects.viewRepo')} <ExternalLink size={18} />
+            </a>
+          </div>
+          <div className="glass" style={projectCardStyle}>
+            <h4 style={{fontSize: '1.4rem', marginBottom: '0.5rem'}}>{t('projects.proj2.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 500, marginBottom: '1rem'}}>{t('projects.proj2.tech')}</p>
+            <p style={{opacity: 0.8, flexGrow: 1, marginBottom: '1.5rem'}}>{t('projects.proj2.desc')}</p>
+            <a href="https://github.com/AbdelhakMirbah/SmartIrrigation" target="_blank" rel="noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 600}}>
+              {t('projects.viewRepo')} <ExternalLink size={18} />
+            </a>
+          </div>
+          <div className="glass" style={projectCardStyle}>
+            <h4 style={{fontSize: '1.4rem', marginBottom: '0.5rem'}}>{t('projects.proj3.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 500, marginBottom: '1rem'}}>{t('projects.proj3.tech')}</p>
+            <p style={{opacity: 0.8, flexGrow: 1, marginBottom: '1.5rem'}}>{t('projects.proj3.desc')}</p>
+            <a href="https://github.com/5iirControle/controle-dl-flutter-abdelhak_mirbah_g9" target="_blank" rel="noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 600}}>
+              {t('projects.viewRepo')} <ExternalLink size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="container" style={sectionStyle}>
+        <h3 style={sectionTitleStyle}>{t('certifications.title')}</h3>
+        <div style={certGridStyle}>
+          {certifications.map((cert, index) => (
+            <a key={index} href={cert.url} target="_blank" rel="noreferrer" className="glass cert-card" style={certCardStyle}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+                <Award size={24} color="var(--accent-color)" />
+                <ExternalLink size={16} opacity={0.5} />
+              </div>
+              <h4 style={{fontSize: '1.1rem', marginBottom: '0.5rem', lineHeight: 1.3}}>{cert.title}</h4>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 'auto', fontSize: '0.9rem', opacity: 0.7 }}>
+                <span>{cert.provider}</span>
+                <span>{cert.date}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={footerStyle}>
+        <p style={{opacity: 0.6}}>© {new Date().getFullYear()} Abdelhak Mirbah. {t('footer.builtWith')}</p>
+      </footer>
     </div>
   );
 }
 
-// Inline styles for quick prototyping, can be moved to CSS later
-const navStyle = {
-  position: 'fixed',
-  top: '1rem',
-  left: '50%',
-  transform: 'translateX(-50%)',
-  width: 'calc(100% - 2rem)',
-  maxWidth: '1200px',
-  borderRadius: '100px',
-  zIndex: 100,
-};
-
-const navContainerStyle = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '1rem 2rem',
-};
-
-const navLinksStyle = {
-  display: 'flex',
-  gap: '2rem',
-  alignItems: 'center',
-};
-
-const linkStyle = {
-  textDecoration: 'none',
-  color: 'inherit',
-  fontWeight: 500,
-  opacity: 0.8,
-  transition: 'opacity 0.2s',
-};
-
-const themeBtnStyle = {
-  background: 'none',
-  border: 'none',
-  color: 'inherit',
-  cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: '0.5rem',
-  borderRadius: '50%',
-  transition: 'background 0.2s',
-};
-
-const primaryBtnStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '0.5rem',
-  background: 'var(--accent-color)',
-  color: '#fff',
-  padding: '0.8rem 1.5rem',
-  borderRadius: '50px',
-  textDecoration: 'none',
-  fontWeight: 600,
-  transition: 'background 0.2s, transform 0.2s',
-};
-
-const iconLinkStyle = {
-  color: 'inherit',
-  opacity: 0.7,
-  transition: 'opacity 0.2s, transform 0.2s',
-  display: 'flex',
-  alignItems: 'center',
-};
+// Inline Styles
+const navStyle = { position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)', width: 'calc(100% - 2rem)', maxWidth: '1200px', borderRadius: '100px', zIndex: 100 };
+const navContainerStyle = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem' };
+const navLinksStyle = { display: 'flex', gap: '2rem', alignItems: 'center' };
+const linkStyle = { textDecoration: 'none', color: 'inherit', fontWeight: 500, opacity: 0.8, transition: 'opacity 0.2s' };
+const themeBtnStyle = { background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem', borderRadius: '50%', transition: 'background 0.2s' };
+const primaryBtnStyle = { display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--accent-color)', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '50px', textDecoration: 'none', fontWeight: 600, transition: 'background 0.2s, transform 0.2s' };
+const iconLinkStyle = { color: 'inherit', opacity: 0.7, transition: 'opacity 0.2s, transform 0.2s', display: 'flex', alignItems: 'center' };
+const sectionStyle = { padding: '6rem 0' };
+const sectionTitleStyle = { fontSize: '2.5rem', fontWeight: 800, marginBottom: '3rem', textAlign: 'center' };
+const gridStyle = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' };
+const cardStyle = { padding: '2rem', borderRadius: '20px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' };
+const timelineItemStyle = { borderLeft: '2px solid var(--accent-color)', paddingLeft: '1.5rem', position: 'relative' };
+const projectCardStyle = { padding: '2rem', borderRadius: '20px', display: 'flex', flexDirection: 'column', minHeight: '250px' };
+const certGridStyle = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' };
+const certCardStyle = { padding: '1.5rem', borderRadius: '15px', display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit', transition: 'transform 0.2s, background 0.2s' };
+const footerStyle = { textAlign: 'center', padding: '3rem 0', marginTop: '4rem', borderTop: '1px solid var(--glass-border)' };
 
 export default App;
