@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download } from 'lucide-react';
+import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
@@ -29,6 +29,7 @@ const certifications = [
 
 function App() {
   const [theme, setTheme] = useState('dark');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -63,14 +64,19 @@ function App() {
       
       {/* Navigation */}
       <nav className="glass nav-animate" style={navStyle}>
-        <div className="container" style={navContainerStyle}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>Abdelhak Mirbah</h1>
-          <div style={navLinksStyle}>
-            <a href="#about" style={linkStyle}>{t('nav.about')}</a>
-            <a href="#projects" style={linkStyle}>{t('nav.projects')}</a>
-            <a href="#certifications" style={linkStyle}>{t('nav.certifications')}</a>
+        <div className="container nav-container">
+          <div className="nav-header">
+            <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>Abdelhak Mirbah</h1>
+            <button className="burger-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+          <div className={`nav-links-container ${isMenuOpen ? 'open' : ''}`}>
+            <a href="#about" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</a>
+            <a href="#projects" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</a>
+            <a href="#certifications" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.certifications')}</a>
             
-            <div style={{ display: 'flex', gap: '0.5rem', marginLeft: '1rem' }}>
+            <div className="nav-controls" style={{ display: 'flex', gap: '0.5rem', marginLeft: '1rem' }}>
               <button onClick={toggleLanguage} style={themeBtnStyle} aria-label="Toggle Language" title="Change Language">
                 <Globe size={20} /> <span style={{marginLeft: '0.3rem', fontSize: '0.9rem', fontWeight: 600}}>{i18n.language.toUpperCase()}</span>
               </button>
@@ -227,8 +233,6 @@ function App() {
 
 // Inline Styles
 const navStyle = { position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)', width: 'calc(100% - 2rem)', maxWidth: '1200px', borderRadius: '100px', zIndex: 100 };
-const navContainerStyle = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem' };
-const navLinksStyle = { display: 'flex', gap: '2rem', alignItems: 'center' };
 const linkStyle = { textDecoration: 'none', color: 'inherit', fontWeight: 500, opacity: 0.8, transition: 'opacity 0.2s' };
 const themeBtnStyle = { background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem', borderRadius: '50%', transition: 'background 0.2s' };
 const primaryBtnStyle = { display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--accent-color)', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '50px', textDecoration: 'none', fontWeight: 600, transition: 'background 0.2s, transform 0.2s' };
