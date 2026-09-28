@@ -90,6 +90,7 @@ function App() {
           </div>
           <div className={`nav-links-container ${isMenuOpen ? 'open' : ''}`}>
             <a href="#about" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</a>
+            <a href="#experience" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.experience')}</a>
             <a href="#projects" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</a>
             <a href="#certifications" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.certifications')}</a>
             <a href="#contact" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</a>
@@ -171,23 +172,44 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section className="container" style={sectionStyle}>
+      <section id="experience" className="container" style={sectionStyle}>
         <h3 style={sectionTitleStyle}>{t('experience.title')}</h3>
         <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
           <div style={timelineItemStyle}>
             <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp1.title')}</h4>
-            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('experience.exp1.company')} | {t('experience.exp1.date')}</p>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
+              <a href="https://www.leoni-morocco.com/fr" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
+                {t('experience.exp1.company')} <ExternalLink size={14} style={{display: 'inline', marginBottom: '-2px'}}/>
+              </a> | {t('experience.exp1.date')}
+            </p>
             <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp1.desc')}</p>
           </div>
           <div style={timelineItemStyle}>
             <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp2.title')}</h4>
-            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('experience.exp2.company')} | {t('experience.exp2.date')}</p>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
+              <a href="https://damanecash.ma" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
+                {t('experience.exp2.company')} <ExternalLink size={14} style={{display: 'inline', marginBottom: '-2px'}}/>
+              </a> | {t('experience.exp2.date')}
+            </p>
             <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp2.desc')}</p>
           </div>
           <div style={timelineItemStyle}>
             <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp3.title')}</h4>
-            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>{t('experience.exp3.company')} | {t('experience.exp3.date')}</p>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
+              <a href="https://kazinov.com" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
+                {t('experience.exp3.company')} <ExternalLink size={14} style={{display: 'inline', marginBottom: '-2px'}}/>
+              </a> | {t('experience.exp3.date')}
+            </p>
             <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp3.desc')}</p>
+          </div>
+          <div style={timelineItemStyle}>
+            <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp4.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
+              <a href="https://innolia.ma" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
+                {t('experience.exp4.company')} <ExternalLink size={14} style={{display: 'inline', marginBottom: '-2px'}}/>
+              </a> | {t('experience.exp4.date')}
+            </p>
+            <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp4.desc')}</p>
           </div>
         </div>
       </section>

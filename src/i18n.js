@@ -6,6 +6,7 @@ const resources = {
     translation: {
       nav: {
         about: "About",
+        experience: "Experience",
         projects: "Projects",
         certifications: "Certifications",
         contact: "Contact"
@@ -40,9 +41,15 @@ const resources = {
         },
         exp3: {
           title: "Web Developer Intern",
-          company: "Kazinov (Schneider)",
+          company: "Kazinov",
           date: "Aug 2024 - Sep 2024",
           desc: "Designed and developed a task management web application for project tracking using PHP, Bootstrap, and MySQL."
+        },
+        exp4: {
+          title: "Freelance",
+          company: "Innolia",
+          date: "2023 - Present",
+          desc: "Provided technical consulting and developed scalable digital solutions."
         }
       },
       projects: {
@@ -85,6 +92,7 @@ const resources = {
     translation: {
       nav: {
         about: "À propos",
+        experience: "Expérience",
         projects: "Projets",
         certifications: "Certifications",
         contact: "Contact"
@@ -119,9 +127,15 @@ const resources = {
         },
         exp3: {
           title: "Stagiaire Développeur Web",
-          company: "Kazinov (Schneider)",
+          company: "Kazinov",
           date: "Août 2024 - Sept. 2024",
           desc: "Conception et développement d'une application web de suivi des tâches pour la gestion de projets avec PHP, Bootstrap et MySQL."
+        },
+        exp4: {
+          title: "Freelance",
+          company: "Innolia",
+          date: "2023 - Présent",
+          desc: "Consulting technique et développement de solutions numériques évolutives."
         }
       },
       projects: {
