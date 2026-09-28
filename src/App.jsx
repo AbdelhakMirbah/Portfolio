@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone, ArrowUp } from 'lucide-react';
+import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone, ArrowUp, GraduationCap } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
@@ -90,6 +90,7 @@ function App() {
           </div>
           <div className={`nav-links-container ${isMenuOpen ? 'open' : ''}`}>
             <a href="#about" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</a>
+            <a href="#education" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.education')}</a>
             <a href="#experience" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.experience')}</a>
             <a href="#projects" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</a>
             <a href="#certifications" style={linkStyle} onClick={() => setIsMenuOpen(false)}>{t('nav.certifications')}</a>
@@ -167,6 +168,34 @@ function App() {
             <Briefcase size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
             <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.languagesTools')}</h4>
             <p style={{opacity: 0.8}}>Python, Java, JavaScript, SQL, Git, Jira, Scrum</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="container" style={sectionStyle}>
+        <h3 style={sectionTitleStyle}>{t('education.title')}</h3>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+          <div style={timelineItemStyle}>
+            <div style={{display: 'flex', alignItems: 'flex-start', gap: '0.8rem', marginBottom: '0.5rem'}}>
+              <GraduationCap size={24} color="var(--accent-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <h4 style={{fontSize: '1.3rem'}}>{t('education.edu1.degree')}</h4>
+            </div>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600, paddingLeft: '2.3rem'}}>{t('education.edu1.school')} | {t('education.edu1.date')}</p>
+          </div>
+          <div style={timelineItemStyle}>
+            <div style={{display: 'flex', alignItems: 'flex-start', gap: '0.8rem', marginBottom: '0.5rem'}}>
+              <GraduationCap size={24} color="var(--accent-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <h4 style={{fontSize: '1.3rem'}}>{t('education.edu2.degree')}</h4>
+            </div>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600, paddingLeft: '2.3rem'}}>{t('education.edu2.school')} | {t('education.edu2.date')}</p>
+          </div>
+          <div style={timelineItemStyle}>
+            <div style={{display: 'flex', alignItems: 'flex-start', gap: '0.8rem', marginBottom: '0.5rem'}}>
+              <GraduationCap size={24} color="var(--accent-color)" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <h4 style={{fontSize: '1.3rem'}}>{t('education.edu3.degree')}</h4>
+            </div>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600, paddingLeft: '2.3rem'}}>{t('education.edu3.school')} | {t('education.edu3.date')}</p>
           </div>
         </div>
       </section>

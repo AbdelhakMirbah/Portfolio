@@ -6,6 +6,7 @@ const resources = {
     translation: {
       nav: {
         about: "About",
+        education: "Education",
         experience: "Experience",
         projects: "Projects",
         certifications: "Certifications",
@@ -24,6 +25,24 @@ const resources = {
         webDev: "Web Development",
         dataAnalytics: "Data & Analytics",
         languagesTools: "Languages & Tools"
+      },
+      education: {
+        title: "Education",
+        edu1: {
+          degree: "State Engineering Degree in Computer & Network Engineering",
+          school: "École Marocaine des Sciences de l'Ingénieur",
+          date: "2023 - 2026"
+        },
+        edu2: {
+          degree: "Specialized Technician Diploma in IT Development",
+          school: "ISTA NTIC SIDI MAAROUF",
+          date: "2019 - 2021"
+        },
+        edu3: {
+          degree: "Baccalaureate in Physical Sciences",
+          school: "Lycée Jamal Eddine Al Mahiaoui",
+          date: "2018 - 2019"
+        }
       },
       experience: {
         title: "Experience",
@@ -92,6 +111,7 @@ const resources = {
     translation: {
       nav: {
         about: "À propos",
+        education: "Académique",
         experience: "Expérience",
         projects: "Projets",
         certifications: "Certifications",
@@ -110,6 +130,24 @@ const resources = {
         webDev: "Développement Web",
         dataAnalytics: "Données & Analytique",
         languagesTools: "Langages & Outils"
+      },
+      education: {
+        title: "Parcours Académique",
+        edu1: {
+          degree: "Diplôme d'Ingénieur d'État en Ingénierie Informatique et Réseaux (Génie Logiciel)",
+          school: "École Marocaine des Sciences de l'Ingénieur",
+          date: "2023 - 2026"
+        },
+        edu2: {
+          degree: "Diplôme Technicien Spécialisé Développement Informatique",
+          school: "ISTA NTIC SIDI MAAROUF",
+          date: "2019 - 2021"
+        },
+        edu3: {
+          degree: "Baccalauréat Sciences Physiques",
+          school: "Lycée Jamal Eddine Al Mahiaoui",
+          date: "2018 - 2019"
+        }
       },
       experience: {
         title: "Expérience",
