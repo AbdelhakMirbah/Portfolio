@@ -97,6 +97,30 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.5rem;
 }
 
+.scroll-top-btn {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  padding: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  border: 1px solid var(--accent-color);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.scroll-top-btn:hover {
+  background: var(--accent-color);
+  color: #fff;
+  transform: translateY(-5px);
+}
+
 @media (max-width: 900px) {
   .hero-text h2 {
     font-size: 3.5rem !important;
@@ -181,5 +205,11 @@ h1, h2, h3, h4, h5, h6 {
   h3 {
     font-size: 2rem !important;
     margin-bottom: 2rem !important;
+  }
+  
+  .scroll-top-btn {
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+    padding: 0.6rem !important;
   }
 }

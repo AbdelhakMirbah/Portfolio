@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone } from 'lucide-react';
+import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone, ArrowUp } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
@@ -30,11 +30,24 @@ const certifications = [
 function App() {
   const [theme, setTheme] = useState('dark');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     // Entrance animations
@@ -52,6 +65,10 @@ function App() {
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const toggleLanguage = () => {
@@ -269,6 +286,13 @@ function App() {
       <footer style={footerStyle}>
         <p style={{opacity: 0.6}}>© {new Date().getFullYear()} Abdelhak Mirbah. {t('footer.builtWith')}</p>
       </footer>
+      
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button onClick={scrollToTop} className="glass scroll-top-btn" aria-label="Scroll to top">
+          <ArrowUp size={24} />
+        </button>
+      )}
     </div>
   );
 }
