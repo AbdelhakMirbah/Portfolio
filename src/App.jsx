@@ -317,6 +317,15 @@ function App() {
             </p>
             <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp4.desc')}</p>
           </div>
+          <div className="timeline-item">
+            <h4 style={{fontSize: '1.3rem'}}>{t('experience.exp5.title')}</h4>
+            <p style={{color: 'var(--accent-color)', fontWeight: 600}}>
+              <a href="https://elxirwatches.youcan.store" target="_blank" rel="noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>
+                {t('experience.exp5.company')} <ExternalLink size={14} style={{display: 'inline', marginBottom: '-2px'}}/>
+              </a> | {t('experience.exp5.date')}
+            </p>
+            <p style={{opacity: 0.8, marginTop: '0.5rem'}}>{t('experience.exp5.desc')}</p>
+          </div>
         </div>
       </section>
 

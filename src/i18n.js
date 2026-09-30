@@ -70,6 +70,12 @@ const resources = {
           company: "Innolia",
           date: "2023 - Present",
           desc: "Provided technical consulting and developed scalable digital solutions."
+        },
+        exp5: {
+          title: "Founder & E-commerce Manager",
+          company: "Elxir Watches",
+          date: "2022 - 2025",
+          desc: "Founded an online watch store via YouCan. Successfully handled digital marketing, operations, and product sourcing while balancing academic studies."
         }
       },
       projects: {
@@ -176,6 +182,12 @@ const resources = {
           company: "Innolia",
           date: "2023 - Présent",
           desc: "Consulting technique et développement de solutions numériques évolutives."
+        },
+        exp5: {
+          title: "Fondateur & Gérant E-commerce",
+          company: "Elxir Watches",
+          date: "2022 - 2025",
+          desc: "Création d'une boutique en ligne de montres sur YouCan. Gestion complète du marketing digital, des opérations et du sourcing produits en parallèle de mes études."
         }
       },
       projects: {
