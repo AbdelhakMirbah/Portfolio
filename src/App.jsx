@@ -4,8 +4,11 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaReact, FaPython, FaJava, FaPhp, FaB
 import { SiSpringboot, SiPandas, SiPostgresql, SiMysql, SiJavascript } from 'react-icons/si';
 import profileImg from './assets/profile.png';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTranslation } from 'react-i18next';
 import './index.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const certifications = [
   { title: "Spring, JPA, Testing, and Legacy Microservices", provider: "Packt", date: "Jan 2026", url: "https://www.coursera.org/account/accomplishments/verify/V2J4GU7UH3NE" },
@@ -79,6 +82,49 @@ function App() {
       { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
       "-=0.4"
     );
+
+    // Scroll animations for sections
+    const sections = gsap.utils.toArray('section:not(#hero)');
+    sections.forEach((sec) => {
+      gsap.fromTo(sec, 
+        { y: 50, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.8, 
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sec,
+            start: "top 85%", // trigger when the top of the section hits 85% down the viewport
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+
+    // Staggered animations for cards and timeline items
+    const elements = gsap.utils.toArray('.glass, .timeline-item');
+    elements.forEach((el) => {
+      gsap.fromTo(el,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+    
+    // Cleanup on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   const toggleTheme = () => {
