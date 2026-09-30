@@ -11,6 +11,7 @@ import './index.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const certifications = [
+  { title: "Oracle Cloud Infrastructure 2025 Certified DevOps Professional", provider: "Oracle", date: "2026", url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=B0E5F13B50749715C4C6EB04CCC393509D881F66DCA6334EE16BBD173E716084" },
   { title: "Spring, JPA, Testing, and Legacy Microservices", provider: "Packt", date: "Jan 2026", url: "https://www.coursera.org/account/accomplishments/verify/V2J4GU7UH3NE" },
   { title: "Advanced Spring Cloud Microservices & Deployment with Docker", provider: "Packt", date: "Jan 2026", url: "https://www.coursera.org/account/accomplishments/verify/P9C8PYN8SFSM" },
   { title: "Machine Learning with Python", provider: "IBM", date: "Dec 2025", url: "https://www.coursera.org/account/accomplishments/verify/S4XVZVGKRC12" },
@@ -22,13 +23,12 @@ const certifications = [
   { title: "People & Soft Skills: Essential for Professional Success", provider: "IBM", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/specialization/PQXET4U4STQD" },
   { title: "The Unix Workbench", provider: "Johns Hopkins University", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/JUB7KQBDT9VA" },
   { title: "Programming for Everybody (Getting Started with Python)", provider: "University of Michigan", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/F9EZ5VM67KJT" },
-  { title: "Introduction to CSS3", provider: "University of Michigan", date: "Jan 2024", url: "https://www.coursera.org/account/accomplishments/verify/8BCP9JRWJDU6" },
   { title: "Delivering Quality Work with Agility", provider: "IBM", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/8HT2N5PHUE25" },
   { title: "Impact Measurement & Management for the SDGs", provider: "Duke University", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/EBL5DUNGHRY8" },
   { title: "Villes africaines: Environnement et enjeux de développement durable", provider: "EPFL", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/VB775CMEM6HS" },
   { title: "La recherche documentaire", provider: "École Polytechnique", date: "May 2024", url: "https://www.coursera.org/account/accomplishments/verify/FHUKYPU2CBPR" },
-  { title: "Microsoft Excel Expert (Office 2016)", provider: "Microsoft", date: "May 2022", url: "https://www.credly.com/badges/baa2f397-42ef-4cb2-a366-b735f1b7169d?source=linked_in_profile" },
-  { title: "Oracle Cloud Infrastructure 2025 Certified DevOps Professional", provider: "Oracle", date: "2026", url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=B0E5F13B50749715C4C6EB04CCC393509D881F66DCA6334EE16BBD173E716084" }
+  { title: "Introduction to CSS3", provider: "University of Michigan", date: "Jan 2024", url: "https://www.coursera.org/account/accomplishments/verify/8BCP9JRWJDU6" },
+  { title: "Microsoft Excel Expert (Office 2016)", provider: "Microsoft", date: "May 2022", url: "https://www.credly.com/badges/baa2f397-42ef-4cb2-a366-b735f1b7169d?source=linked_in_profile" }
 ];
 
 const techStack = [
