@@ -68,7 +68,7 @@ const resources = {
         exp4: {
           title: "Freelance",
           company: "Innolia",
-          date: "2023 - Present",
+          date: "Summer 2022",
           desc: "Provided technical consulting and developed scalable digital solutions."
         },
         exp5: {
@@ -180,7 +180,7 @@ const resources = {
         exp4: {
           title: "Freelance",
           company: "Innolia",
-          date: "2023 - Présent",
+          date: "Été 2022",
           desc: "Consulting technique et développement de solutions numériques évolutives."
         },
         exp5: {
