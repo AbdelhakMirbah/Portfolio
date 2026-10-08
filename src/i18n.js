@@ -23,9 +23,9 @@ const resources = {
       about: {
         title: "About Me & Skills",
         bio: "I am a versatile Software Engineer passionate about building end-to-end IT solutions. With a solid foundation in both web application development and data engineering, I love tackling complex technical challenges and contributing to innovative projects.",
-        webDev: "Web Development",
-        dataAnalytics: "Data & Analytics",
-        languagesTools: "Languages & Tools"
+        webDev: "Software & Web Dev",
+        dataAnalytics: "Mobile & AI Engineering",
+        languagesTools: "Data & Infrastructure"
       },
       education: {
         title: "Education",
@@ -145,9 +145,9 @@ const resources = {
       about: {
         title: "À propos & Compétences",
         bio: "Ingénieur logiciel polyvalent, passionné par la conception de solutions IT de bout en bout. Fort d'une solide base technique allant du développement d'applications à l'ingénierie de données, j'aime relever des défis techniques complexes et participer au développement de projets innovants.",
-        webDev: "Développement Web",
-        dataAnalytics: "Données & Analytique",
-        languagesTools: "Langages & Outils"
+        webDev: "Logiciel & Web",
+        dataAnalytics: "Mobile & Ingénierie IA",
+        languagesTools: "Données & Infrastructure"
       },
       education: {
         title: "Parcours Académique",

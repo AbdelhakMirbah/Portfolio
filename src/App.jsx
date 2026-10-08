@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone, ArrowUp, GraduationCap } from 'lucide-react';
+import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLink, Globe, Download, Menu, X, MapPin, Mail, Send, Phone, ArrowUp, GraduationCap, Cpu } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaReact, FaPython, FaJava, FaPhp, FaBootstrap, FaHtml5, FaGitAlt, FaJira, FaDocker } from 'react-icons/fa';
 import { SiSpringboot, SiPandas, SiPostgresql, SiMysql, SiJavascript } from 'react-icons/si';
 import profileImg from './assets/profile.png';
@@ -230,17 +230,17 @@ function App() {
           <div className="glass" style={cardStyle}>
             <Layout size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
             <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.webDev')}</h4>
-            <p style={{opacity: 0.8}}>React, Spring Boot, Flask, PHP, Bootstrap, HTML/CSS/JS</p>
+            <p style={{opacity: 0.8}}>React, Spring Boot, TypeScript, Python, Flask, HTML/CSS/JS</p>
+          </div>
+          <div className="glass" style={cardStyle}>
+            <Cpu size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
+            <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.dataAnalytics')}</h4>
+            <p style={{opacity: 0.8}}>Flutter, Dart, Android/Java, TensorFlow Lite, ONNX, LLMs</p>
           </div>
           <div className="glass" style={cardStyle}>
             <Database size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
-            <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.dataAnalytics')}</h4>
-            <p style={{opacity: 0.8}}>Pandas, PostgreSQL, Power BI, ETL, MySQL</p>
-          </div>
-          <div className="glass" style={cardStyle}>
-            <Briefcase size={32} color="var(--accent-color)" style={{marginBottom: '1rem'}}/>
             <h4 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>{t('about.languagesTools')}</h4>
-            <p style={{opacity: 0.8}}>Python, Java, JavaScript, SQL, Git, Jira, Scrum</p>
+            <p style={{opacity: 0.8}}>SQLite, PostgreSQL, Apache Kafka, IoT, Git, Scrum</p>
           </div>
         </div>
         
