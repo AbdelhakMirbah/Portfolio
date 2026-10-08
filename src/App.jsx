@@ -338,30 +338,22 @@ function App() {
       <section id="projects" className="container" style={sectionStyle}>
         <h3 style={sectionTitleStyle}>{t('projects.title')}</h3>
         <div style={gridStyle}>
-          <div className="glass" style={projectCardStyle}>
-            <h4 style={{fontSize: '1.4rem', marginBottom: '0.5rem'}}>{t('projects.proj1.title')}</h4>
-            <p style={{color: 'var(--accent-color)', fontWeight: 500, marginBottom: '1rem'}}>{t('projects.proj1.tech')}</p>
-            <p style={{opacity: 0.8, flexGrow: 1, marginBottom: '1.5rem'}}>{t('projects.proj1.desc')}</p>
-            <a href="https://github.com/AbdelhakMirbah/FinalVersionPFA" target="_blank" rel="noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 600}}>
-              {t('projects.viewRepo')} <ExternalLink size={18} />
-            </a>
-          </div>
-          <div className="glass" style={projectCardStyle}>
-            <h4 style={{fontSize: '1.4rem', marginBottom: '0.5rem'}}>{t('projects.proj2.title')}</h4>
-            <p style={{color: 'var(--accent-color)', fontWeight: 500, marginBottom: '1rem'}}>{t('projects.proj2.tech')}</p>
-            <p style={{opacity: 0.8, flexGrow: 1, marginBottom: '1.5rem'}}>{t('projects.proj2.desc')}</p>
-            <a href="https://github.com/AbdelhakMirbah/SmartIrrigation" target="_blank" rel="noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 600}}>
-              {t('projects.viewRepo')} <ExternalLink size={18} />
-            </a>
-          </div>
-          <div className="glass" style={projectCardStyle}>
-            <h4 style={{fontSize: '1.4rem', marginBottom: '0.5rem'}}>{t('projects.proj3.title')}</h4>
-            <p style={{color: 'var(--accent-color)', fontWeight: 500, marginBottom: '1rem'}}>{t('projects.proj3.tech')}</p>
-            <p style={{opacity: 0.8, flexGrow: 1, marginBottom: '1.5rem'}}>{t('projects.proj3.desc')}</p>
-            <a href="https://github.com/5iirControle/controle-dl-flutter-abdelhak_mirbah_g9" target="_blank" rel="noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 600}}>
-              {t('projects.viewRepo')} <ExternalLink size={18} />
-            </a>
-          </div>
+          {[
+            { id: 1, repo: "JobAssistProject" },
+            { id: 2, repo: "elxirwatches" },
+            { id: 3, repo: "SmartIrrigation" },
+            { id: 4, repo: "flutterProject" },
+            { id: 5, repo: "FinalVersionPFA" }
+          ].map((proj) => (
+            <div key={proj.id} className="glass" style={projectCardStyle}>
+              <h4 style={{fontSize: '1.4rem', marginBottom: '0.5rem'}}>{t(`projects.proj${proj.id}.title`)}</h4>
+              <p style={{color: 'var(--accent-color)', fontWeight: 500, marginBottom: '1rem'}}>{t(`projects.proj${proj.id}.tech`)}</p>
+              <p style={{opacity: 0.8, flexGrow: 1, marginBottom: '1.5rem'}}>{t(`projects.proj${proj.id}.desc`)}</p>
+              <a href={`https://github.com/AbdelhakMirbah/${proj.repo}`} target="_blank" rel="noreferrer" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 600}}>
+                {t('projects.viewRepo')} <ExternalLink size={18} />
+              </a>
+            </div>
+          ))}
         </div>
       </section>
 

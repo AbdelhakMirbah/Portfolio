@@ -82,19 +82,29 @@ const resources = {
         title: "Key Projects",
         viewRepo: "View Repository",
         proj1: {
-          title: "AI-Powered Fraud Detection",
-          tech: "Spring Boot, Apache Kafka, ONNX",
-          desc: "Developed a real-time fraud detection pipeline integrating an AI model (ONNX) for inference and anomaly analysis with ultra-low latency."
+          title: "Job Assist AI",
+          tech: "Python, AI, SQLite",
+          desc: "An AI-powered job assistant that automates resume tailoring and cover letter generation using web scrapers and language models."
         },
         proj2: {
-          title: "Smart Irrigation",
-          tech: "Android, AI, IoT Data",
-          desc: "Developed an Android app providing real-time irrigation recommendations based on weather data and an adaptive AI model considering soil and plant types."
+          title: "Elxir Watches E-commerce",
+          tech: "TypeScript, Web Development",
+          desc: "An e-commerce platform source code for my watch business, featuring product catalogs, cart management, and seamless UI/UX."
         },
         proj3: {
+          title: "Smart Irrigation",
+          tech: "Java, Android, IoT Data",
+          desc: "An Android app providing real-time irrigation recommendations based on weather data and an adaptive model considering soil and plant types."
+        },
+        proj4: {
           title: "Flutter Deep Learning App",
           tech: "Flutter, Dart, TensorFlow Lite",
           desc: "Built a cross-platform mobile application integrating a Deep Learning model for real-time on-device inference, showcasing advanced UI design and AI integration."
+        },
+        proj5: {
+          title: "AI-Powered Fraud Detection",
+          tech: "Spring Boot, Apache Kafka, ONNX",
+          desc: "Developed a real-time fraud detection pipeline integrating an AI model (ONNX) for inference and anomaly analysis with ultra-low latency."
         }
       },
       certifications: {
@@ -194,19 +204,29 @@ const resources = {
         title: "Projets Clés",
         viewRepo: "Voir le Dépôt",
         proj1: {
-          title: "Détection de Fraude par IA",
-          tech: "Spring Boot, Apache Kafka, ONNX",
-          desc: "Développement d'un pipeline temps réel de détection de fraude intégrant un modèle d'IA (ONNX) pour l'inférence et l'analyse d'anomalies à très faible latence."
+          title: "Assistant Emploi IA",
+          tech: "Python, IA, SQLite",
+          desc: "Un assistant de recherche d'emploi alimenté par l'IA qui automatise la personnalisation des CV et des lettres de motivation via scraping web et LLMs."
         },
         proj2: {
-          title: "Irrigation Intelligente",
-          tech: "Android, IA, Données IoT",
-          desc: "Développement d'une application Android proposant des recommandations d'irrigation en temps réel basées sur les données météo et un modèle d'IA adaptatif."
+          title: "E-commerce Elxir Watches",
+          tech: "TypeScript, Développement Web",
+          desc: "Code source d'une plateforme e-commerce pour mon entreprise de montres, avec catalogue de produits, gestion de panier et une UI/UX fluide."
         },
         proj3: {
+          title: "Irrigation Intelligente",
+          tech: "Java, Android, Données IoT",
+          desc: "Développement d'une application Android proposant des recommandations d'irrigation en temps réel basées sur les données météo et un modèle adaptatif."
+        },
+        proj4: {
           title: "Application Mobile IA (Flutter)",
           tech: "Flutter, Dart, TensorFlow Lite",
           desc: "Création d'une application mobile intégrant un modèle de Deep Learning pour l'inférence en temps réel sur l'appareil, alliant design UI avancé et intégration IA."
+        },
+        proj5: {
+          title: "Détection de Fraude par IA",
+          tech: "Spring Boot, Apache Kafka, ONNX",
+          desc: "Développement d'un pipeline temps réel de détection de fraude intégrant un modèle d'IA (ONNX) pour l'inférence et l'analyse d'anomalies à très faible latence."
         }
       },
       certifications: {
