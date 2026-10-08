@@ -60,6 +60,39 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  // Custom Cursor Logic
+  useEffect(() => {
+    const cursor = document.querySelector('.custom-cursor');
+    if (!cursor) return;
+
+    const onMouseMove = (e) => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.15,
+        ease: 'power2.out'
+      });
+    };
+
+    const onMouseEnter = () => cursor.classList.add('hovering');
+    const onMouseLeave = () => cursor.classList.remove('hovering');
+
+    window.addEventListener('mousemove', onMouseMove);
+    const hoverElements = document.querySelectorAll('a, button, .glass, .timeline-item');
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseenter', onMouseEnter);
+      el.addEventListener('mouseleave', onMouseLeave);
+    });
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      hoverElements.forEach(el => {
+        el.removeEventListener('mouseenter', onMouseEnter);
+        el.removeEventListener('mouseleave', onMouseLeave);
+      });
+    };
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -73,7 +106,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Entrance animations
+    // Entrance animations & Parallax
     const tl = gsap.timeline();
     tl.fromTo('.nav-animate', 
       { y: -50, opacity: 0 }, 
@@ -83,22 +116,39 @@ function App() {
       { y: 30, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
       "-=0.4"
+    )
+    .fromTo('.hero-image',
+      { scale: 0.8, opacity: 0, rotation: -5 },
+      { scale: 1, opacity: 1, rotation: 0, duration: 1, ease: "elastic.out(1, 0.5)" },
+      "-=0.6"
     );
+
+    // Parallax scrolling for hero image
+    gsap.to('.hero-image', {
+      yPercent: 30,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
 
     // Scroll animations for sections
     const sections = gsap.utils.toArray('section:not(#hero)');
     sections.forEach((sec) => {
       gsap.fromTo(sec, 
-        { y: 50, opacity: 0 },
+        { y: 60, opacity: 0 },
         { 
           y: 0, 
           opacity: 1, 
-          duration: 0.8, 
-          ease: "power2.out",
+          duration: 1, 
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sec,
             start: "top 85%", // trigger when the top of the section hits 85% down the viewport
-            toggleActions: "play none none none"
+            toggleActions: "play none none reverse"
           }
         }
       );
@@ -108,12 +158,13 @@ function App() {
     const elements = gsap.utils.toArray('.glass, .timeline-item');
     elements.forEach((el) => {
       gsap.fromTo(el,
-        { y: 30, opacity: 0 },
+        { y: 40, opacity: 0, scale: 0.95 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
+          scale: 1,
+          duration: 0.7,
+          ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: el,
             start: "top 90%",
@@ -210,8 +261,9 @@ function App() {
             </div>
           </div>
           
-          <div className="hero-text" style={{ flexShrink: 0, margin: '0 auto' }}>
+          <div className="hero-text hero-image-container" style={{ flexShrink: 0, margin: '0 auto', perspective: '1000px' }}>
             <img 
+              className="hero-image"
               src={profileImg} 
               alt="Abdelhak Mirbah" 
               style={{ width: '350px', height: '350px', objectFit: 'cover', borderRadius: '50%', border: '4px solid var(--glass-border)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} 
@@ -427,6 +479,9 @@ function App() {
           <ArrowUp size={24} />
         </button>
       )}
+
+      {/* Custom Cursor Element */}
+      <div className="custom-cursor"></div>
     </div>
   );
 }
