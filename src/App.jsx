@@ -3,7 +3,8 @@ import { Sun, Moon, ChevronRight, Briefcase, Database, Layout, Award, ExternalLi
 import { FaGithub, FaLinkedin, FaEnvelope, FaReact, FaPython, FaJava, FaPhp, FaBootstrap, FaHtml5, FaGitAlt, FaJira, FaDocker } from 'react-icons/fa';
 import { SiSpringboot, SiPandas, SiPostgresql, SiMysql, SiJavascript } from 'react-icons/si';
 import profileImg from './assets/profile.png';
-import cvFile from './assets/cv.pdf';
+import cvFR from './assets/CVs/Abdelhak_Mirbah_CV(FR).pdf';
+import cvEN from './assets/CVs/Abdelhak_Mirbah_CV_EN.pdf';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTranslation } from 'react-i18next';
@@ -193,7 +194,11 @@ function App() {
                 <a href="#projects" style={primaryBtnStyle}>
                   {t('hero.viewWork')} <ChevronRight size={18} />
                 </a>
-                <a href={cvFile} download="Abdelhak_Mirbah_CV.pdf" style={{...primaryBtnStyle, background: 'transparent', border: '1px solid var(--accent-color)', color: 'var(--text-color)'}}>
+                <a 
+                  href={i18n.language === 'fr' ? cvFR : cvEN} 
+                  download={i18n.language === 'fr' ? "Abdelhak_Mirbah_CV_FR.pdf" : "Abdelhak_Mirbah_CV_EN.pdf"} 
+                  style={{...primaryBtnStyle, background: 'transparent', border: '1px solid var(--accent-color)', color: 'var(--text-color)'}}
+                >
                   {t('hero.downloadCV')} <Download size={18} />
                 </a>
               </div>
